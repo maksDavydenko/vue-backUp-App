@@ -1,22 +1,23 @@
 <template>
-    <div >
-<!--        <FileInfo :name="'name'" :size="4" :date="'2019'"/>-->
+    <div class="wrap">
+        <button @click="createBackup">backup files</button>
 
         <treeselect v-model="value"
                     :multiple="true"
                     :options="options"
                     :always-open="true"
                     :append-to-body="true"
+                    :load-options="true"
+                    :value-consists-of="valueConsistsOf"
+
         >
-            <label slot="option-label" slot-scope="{ node, shouldShowCount, count, labelClassName }" :class="labelClassName">
-
-                <div class="flex"><div>{{node.label}}</div>{{node.raw.size}}<div></div><div>{{node.raw.date}}</div></div>
-
-<!--                <span v-if="shouldShowCount" :class="countClassName">({{ count }})</span>-->
+            <label slot="option-label" slot-scope="{ node }" :class="labelClassName">
+                <div class="file-wrap">
+                    <div class="file-info file-info_name">{{node.label}}</div>
+                    <div class="file-info file-info_size">{{node.raw.size}}</div>
+                    <div class="file-info file-info_last-modification">{{node.raw.date}}</div>
+                </div>
             </label>
-            <div slot="value-label" slot-scope="{ node }">{{ node.raw.customLabel }}</div>
-
-            <!--            <div slot="value-label">{{ node.size}} {{node.date}}</div>-->
         </treeselect>
     </div>
 </template>
@@ -25,64 +26,89 @@
     // import the component
     import Treeselect from '@riophae/vue-treeselect'
     import '@riophae/vue-treeselect/dist/vue-treeselect.css'
-    // import FileInfo from './FileInfo';
+    import { LOAD_CHILDREN_OPTIONS } from '@riophae/vue-treeselect'
 
+    import data from './data'
+
+    const simulateAsyncOperation = fn => {
+        setTimeout(fn, 2000)
+    }
     export default {
         name: 'files',
         // register the component
         components: {Treeselect},
 
         data() {
-            // let item = `<div class="file-item"><span>ab</span><span>size 4kb</span><span>2020.04.11</span> </div>`;
             return {
-                name: 'size',
-                // define the default value
                 value: null,
-                // define options
-                options: [ {
-                    id: 'a',
-                    label: 'a',
-                    size: 4,
-                    date: '2019',
-                    children: [ {
-                        id: 'aa',
-                        label: 'fs'
-
-                    }, {
-                        id: 'ab',
-                        label: 'tt',
-                        size: 4,
-                        date: '2019',
-                    } ],
-                }, {
-                    id: 'b',
-                    label: 'b',
-                }, {
-                    id: 'c',
-                    label: 'c',
-                } ],
+                backupArr: [],
+                options: data,
+                methods: {},
             }
         },
-
         methods: {
-            addInfo(){
-                return `<div>this name</div>`
-                // return <div><div class="name">${name}</div><div class="size">${size}</div> <div class="data">${date}</div></div>
-            }
-            // renderFileItem(name, size, date) {
-            //
-            //     return '<FileInfo :name="${name}" :size="size" :date="date"/>';
-            // }
+            createBackup(){
+               const arr = this.options.flat()
+                arr.forEach(i => {
+                   this.value.forEach(j => {
+                       if(i.id === j){
+                           this.backupArr.push(i);
+                       }
+                   })
+                })
+            },
+            loadOptions({ action, parentNode, callback }) {
+                // Typically, do the AJAX stuff here.
+                // Once the server has responded,
+                // assign children options to the parent node & call the callback.
+
+                if (action === LOAD_CHILDREN_OPTIONS) {
+                    switch (parentNode.id) {
+                        case 'success': {
+                            simulateAsyncOperation(() => {
+                                parentNode.children = [ {
+                                    id: 'child',
+                                    label: 'Child option',
+                                } ]
+                                callback()
+                            })
+                            break
+                        }
+                        case 'no-children': {
+                            simulateAsyncOperation(() => {
+                                parentNode.children = []
+                                callback()
+                            })
+                            break
+                        }
+                        case 'failure': {
+                            simulateAsyncOperation(() => {
+                                callback(new Error('Failed to load options: network error.'))
+                            })
+                            break
+                        }
+                        default: /* empty */
+                    }
+                }
+            },
         },
-
-
-
     }
 </script>
 
 <style scoped>
-    .flex{
+    .wrap{
+        display: flex;
+        justify-content: center;
+    }
+    .file-wrap{
+        padding: 10px 15px;
         display: flex;
         justify-content: space-between;
     }
+
+    .file-info_size,
+    .file-info_last-modification{
+        text-align: center;
+    }
+
 </style>
