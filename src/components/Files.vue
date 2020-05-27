@@ -1,6 +1,8 @@
 <template>
+    <div>
+        <button @click="createBackup">create backup</button>
+
     <div class="wrap">
-        <button @click="createBackup">backup files</button>
 
         <treeselect v-model="value"
                     :multiple="true"
@@ -8,7 +10,6 @@
                     :always-open="true"
                     :append-to-body="true"
                     :load-options="true"
-                    :value-consists-of="valueConsistsOf"
 
         >
             <label slot="option-label" slot-scope="{ node }" :class="labelClassName">
@@ -19,6 +20,25 @@
                 </div>
             </label>
         </treeselect>
+
+        <treeselect v-model="value1"
+                    :multiple="true"
+                    :options="backupArr"
+                    :always-open="true"
+                    :append-to-body="true"
+                    :load-options="true"
+
+        >
+            <label slot="option-label" slot-scope="{ node }" :class="labelClassName">
+                <div class="file-wrap">
+                    <div class="file-info file-info_name">{{node.label}}</div>
+                    <div class="file-info file-info_size">{{node.raw.size}}</div>
+                    <div class="file-info file-info_last-modification">{{node.raw.date}}</div>
+                </div>
+            </label>
+            </treeselect>
+    </div>
+
     </div>
 </template>
 
@@ -41,6 +61,7 @@
         data() {
             return {
                 value: null,
+                value1: null,
                 backupArr: [],
                 options: data,
                 methods: {},
@@ -48,14 +69,26 @@
         },
         methods: {
             createBackup(){
-               const arr = this.options.flat()
+               const arr = this.options.flat();
+
                 arr.forEach(i => {
                    this.value.forEach(j => {
                        if(i.id === j){
+                           const today = new Date();
+
+                           const day = today.getDate();
+                           const month = today.getMonth()+1 < 10 ? '0' + (today.getMonth()+1) : today.getMonth()+1;
+                           const year = today.getFullYear();
+                           const hours = today.getHours() < 10 ? '0' + today.getHours(): today.getHours();
+                           const minutes = today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes();
+                           const seconds = today.getSeconds() < 10 ? '0' + today.getSeconds() : today.getSeconds();
+
+                           i.date = `${year}-${month}-${day} | ${hours}:${minutes}:${seconds}`;
                            this.backupArr.push(i);
                        }
                    })
                 })
+
             },
             loadOptions({ action, parentNode, callback }) {
                 // Typically, do the AJAX stuff here.
@@ -99,6 +132,7 @@
     .wrap{
         display: flex;
         justify-content: center;
+        flex-direction: column;
     }
     .file-wrap{
         padding: 10px 15px;

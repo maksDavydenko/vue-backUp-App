@@ -1,16 +1,22 @@
 <template>
   <div id="app">
-  <Files/>
+   <nav>
+            <router-link to="/">main</router-link>
+            <router-link to="/date">date</router-link>
+        </nav>
+        <router-view></router-view>
   </div>
 </template>
 
 <script>
 
-import Files from './components/Files';
+// import Files from './components/Files';
+// import Devices from './components/Devices';
 export default {
   name: 'App',
   components: {
-    Files
+    // Devices,
+    // Files
 
   }
 }

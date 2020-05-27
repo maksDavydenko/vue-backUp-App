@@ -18,28 +18,28 @@ const data = [{
             date: '2020-05-13 12:23:50'
         },
             {
-                id: '.updates',
+                id: '.2',
                 label: '.updates',
                 size: '168 B',
                 date: '2020-05-13 12:23:50'
             },
             {
-                id: '.updates',
+                id: '.4',
                 label: '.updates',
                 size: '168 B',
                 date: '2020-05-13 12:23:50'
             },{
-                id: '.updates',
+                id: '.5',
                 label: '.updates',
                 size: '168 B',
                 date: '2020-05-13 12:23:50'
             },{
-                id: '.updates',
+                id: '.5',
                 label: '.updates',
                 size: '168 B',
                 date: '2020-05-13 12:23:50'
             },{
-                id: '.updates',
+                id: '.5',
                 label: '.updates',
                 size: '168 B',
                 date: '2020-05-13 12:23:50'
