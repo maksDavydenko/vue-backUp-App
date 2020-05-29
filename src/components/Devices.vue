@@ -1,14 +1,17 @@
 <template>
     <form>
         <h2>Choise of device for backup files</h2>
-        <select v-model="selected">
+        <select v-model="selected" @change="chengeDevice">
             <option value="" disabled selected>choose
-                device</option>
-            <option value="iPhone">Apple iPhone 11 Pro</option>
-            <option value="samsung">Samsung Galaxy S20</option>
-            <option value="dell">Laptop DELL G5</option>
+                device
+            </option>
+            <option value="Apple iPhone 11 Pro">Apple iPhone 11 Pro</option>
+            <option value="Samsung Galaxy S20">Samsung Galaxy S20</option>
+            <option value="Laptop DELL G5">Laptop DELL G5</option>
         </select>
-        <router-link :to="{ path: 'data:selected', params: {device: 444}, query: {name:selected }}"><input class="btn" type="submit" value="choise device"></router-link>
+        <router-link :to="{ path: 'data:selected',  query: {device: selected, id: id }}"><input class="btn" type="submit"
+                                                                                               value="choise device">
+        </router-link>
     </form>
 </template>
 
@@ -18,28 +21,47 @@
         data() {
             return {
                 selected: '',
+                id: 0,
             }
         },
+        methods: {
+            chengeDevice() {
+                switch (this.selected) {
+                    case 'Apple iPhone 11 Pro' :
+                        this.id = 0;
+                        break;
+                    case 'Samsung Galaxy S20':
+                        this.id = 1;
+                        break;
+                    case 'Laptop DELL G5' :
+                        this.id = 2;
+                        break;
+                }
+            }
+        }
     }
 </script>
 
 <style scoped>
-    form{
+    form {
         width: 80%;
     }
-    h2{
+
+    h2 {
         margin-bottom: 30px;
     }
-    select{
-        padding:5px;
+
+    select {
+        padding: 5px;
         margin-bottom: 30px;
         width: 100%;
     }
-    input{
+
+    input {
 
     }
 
-    option{
+    option {
         padding: 10px 20px;
 
     }

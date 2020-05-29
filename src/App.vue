@@ -7,17 +7,9 @@
 </template>
 
 <script>
-// import background from 'g../src/assets/img/backup-dados.png'
 
-// import Files from './components/Files';
-// import Devices from './components/Devices';
 export default {
   name: 'App',
-  components: {
-    // Devices,
-    // Files
-
-  }
 }
 </script>
 
@@ -37,7 +29,7 @@ min-height: 100vh;
     }
     .content {
         padding-top: 70px;
-  max-width: 800px;
+  max-width:80vw;
         margin: 0px auto;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
