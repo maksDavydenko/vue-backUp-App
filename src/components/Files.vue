@@ -66,10 +66,23 @@
         methods: {
             createBackup() {
                 this.backupArr = [];
-                const arr = this.options.flat();
+                const detailedDate = [];
+
+                function deepItems(arr) {
+                    arr.forEach(i => {
+                        detailedDate.push({id: i.id, size: i.size, date: i.data, label: i.label})
+                        i.children != null ? deepItems(i.children) : null
+                    })
+                }
+
+                this.options.forEach(i=>{
+                    detailedDate.push({id: i.id, size: i.size, date: i.data, label: i.label})
+                    i.children != null ? deepItems(i.children) : null
+                });
+
                 let date = '';
-                console.log(arr);
-                arr.forEach(i => {
+
+                detailedDate.forEach(i => {
                     this.value.forEach(j => {
                         if (i.id === j) {
                             const today = new Date();
@@ -168,7 +181,7 @@
     .backup-item{
         margin-bottom: 20px;
         padding: 10px;
-        border: 2px solid dodgerblue;
+        border: 1px solid dodgerblue;
         border-radius: 20px;
     }
 
