@@ -1,14 +1,13 @@
 <template>
   <div id="app">
    <nav>
-            <router-link to="/">main</router-link>
-            <router-link to="/date">date</router-link>
-        </nav>
-        <router-view></router-view>
+        <router-view class="content"></router-view>
+       </nav>
   </div>
 </template>
 
 <script>
+// import background from 'g../src/assets/img/backup-dados.png'
 
 // import Files from './components/Files';
 // import Devices from './components/Devices';
@@ -23,18 +22,39 @@ export default {
 </script>
 
 <style>
-#app {
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    #app{
+        background: url(../src/assets/img/backup-dados.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+min-height: 100vh;
+        margin: auto;
+    }
+    .content {
+        padding-top: 70px;
   max-width: 800px;
-  display: flex;
-  justify-content: center;
+        margin: 0px auto;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin: 60px auto;
 }
 .vue-treeselect__menu{
   max-height: 100vw !important;
 }
+    .btn{
+        padding: 10px 30px;
+        border: dodgerblue;
+        border-radius: 20px;
+        cursor: pointer;
+        text-transform: uppercase;
+        color: dodgerblue;
+        font-weight: bold;
+    }
 </style>

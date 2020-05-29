@@ -9,12 +9,14 @@ const router = new Router({
         {
             path: '/',
             name: 'devices',
-            component: Devices
+            component: Devices,
+            // props: true
         },
         {
-            path: '/date',
-            name: 'date',
-            component: Files
+            path: '/data:selected',
+            name: 'data',
+            component: Files,
+            props: true
         }
     ]
 })
