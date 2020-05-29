@@ -26,6 +26,7 @@ export default {
         background-position: center center;
 min-height: 100vh;
         margin: auto;
+        background-attachment: fixed;
     }
     .content {
         padding-top: 70px;

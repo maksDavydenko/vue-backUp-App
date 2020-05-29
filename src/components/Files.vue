@@ -68,6 +68,7 @@
                 this.backupArr = [];
                 const arr = this.options.flat();
                 let date = '';
+                console.log(arr);
                 arr.forEach(i => {
                     this.value.forEach(j => {
                         if (i.id === j) {
@@ -76,12 +77,16 @@
                             const day = today.getDate();
                             const month = today.getMonth() + 1 < 10 ? '0' + (today.getMonth() + 1) : today.getMonth() + 1;
                             const year = today.getFullYear();
+
                             const hours = today.getHours() < 10 ? '0' + today.getHours() : today.getHours();
                             const minutes = today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes();
                             const seconds = today.getSeconds() < 10 ? '0' + today.getSeconds() : today.getSeconds();
+
                             date = `${year}-${month}-${day} | ${hours}:${minutes}:${seconds}`;
-                            i.date =date;
+
+                            i.date = date;
                             this.backupArr.push(i);
+
                         }
                     })
                 })
@@ -91,9 +96,7 @@
                     date: date,
                     data: this.backupArr
                 })
-
                 localStorage.setItem('backupInfo', JSON.stringify(this.backupInfo));
-
 
             },
             loadOptions({action, parentNode, callback}) {
@@ -164,6 +167,9 @@
 
     .backup-item{
         margin-bottom: 20px;
+        padding: 10px;
+        border: 2px solid dodgerblue;
+        border-radius: 20px;
     }
 
 

@@ -44,26 +44,29 @@
 
 <style scoped>
     form {
-        width: 80%;
+        width: 50%;
+        max-width: 800px;
     }
 
     h2 {
         margin-bottom: 30px;
+        color: #ffffff;
     }
 
     select {
         padding: 5px;
         margin-bottom: 30px;
         width: 100%;
+        border-radius: 15px;
+        background-color: #fff;
+        color: dodgerblue;
+        padding: 15px;
+        border: none;
+        font-size: 18px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+
+        outline: none;
     }
 
-    input {
-
-    }
-
-    option {
-        padding: 10px 20px;
-
-    }
 
 </style>

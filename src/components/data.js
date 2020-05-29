@@ -112,28 +112,28 @@ const data = [{id: 'iPhone', files: [
                 date: '2020-05-13 12:23:50'
             },
                 {
-                    id: '.2',
+                    id: 'SBWT.mp3',
                     label: 'SBWT.mp3',
                     size: '168 B',
                     date: '2020-05-13 12:23:50'
                 },
                 {
-                    id: '.4',
+                    id: 'EEXS.mp3',
                     label: 'EEXS.mp3',
                     size: '168 B',
                     date: '2020-05-13 12:23:50'
                 }, {
-                    id: '.5',
+                    id: 'VWRW.mp3',
                     label: 'VWRW.mp3',
                     size: '168 B',
                     date: '2020-05-13 12:23:50'
                 }, {
-                    id: '.5',
-                    label: 'WVGT.mp3s',
+                    id: 'WVGT.mp3s',
+                    label: 'WVGT.mp3',
                     size: '168 B',
                     date: '2020-05-13 12:23:50'
                 }, {
-                    id: '.5',
+                    id: 'TEWT.mp3',
                     label: 'TEWT.mp3',
                     size: '168 B',
                     date: '2020-05-13 12:23:50'

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="component">
         <h2>{{$route.query.device}} backup {{$route.query.date}}</h2>
 
         <div class="wrap">
@@ -85,6 +85,13 @@
 </script>
 
 <style scoped>
+    .component{
+        max-width: 900px;
+    }
+    h2{
+        color: #fff;
+        margin-bottom: 30px;
+    }
     .file-wrap{
         padding: 10px 15px;
         display: flex;
