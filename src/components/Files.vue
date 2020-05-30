@@ -4,45 +4,36 @@
         <h3>Choise of folders and files to create backup</h3>
         <button class="btn" @click="createBackup">create backup</button>
 
-    <div class="wrap">
+        <div class="wrap">
 
-        <treeselect class="tree" v-model="value"
-                    :multiple="true"
-                    :options="options"
-                    :always-open="true"
-                    :append-to-body="true"
-                    :load-options="true"
-                    placeholder="Search files"
+            <treeselect class="tree" v-model="value"
+                        :multiple="true"
+                        :options="options"
+                        :always-open="true"
+                        :append-to-body="true"
+                        :load-options="true"
+                        placeholder="Search files"
 
-        >
-            <label slot="option-label" slot-scope="{ node }" :class="labelClassName">
-                <div class="file-wrap">
-                    <div class="file-info file-info_name">{{node.label}}</div>
-                    <div class="file-info file-info_size">{{node.raw.size}}</div>
-                    <div class="file-info file-info_last-modification">{{node.raw.date}}</div>
-                </div>
-            </label>
-        </treeselect>
-        <div class="backup">
-            <h3 class="backup__header">Previus backups</h3>
-            <div class="backup-item" v-for="item in backupInfo" :key="item">
-            <router-link  :to="{ path: 'backup', query: {device:item.device, data: item.data, date: item.date}}">
-                <div>
-                    <h4 class="backup-item__header">{{item.device}}</h4>
-                    <p>{{item.date}}</p>
-                </div>
-                </router-link>
-            </div>
+            >
+                <label slot="option-label" slot-scope="{ node }" :class="labelClassName">
+                    <div class="file-wrap">
+                        <div class="file-info file-info_name">{{node.label}}</div>
+                        <div class="file-info file-info_size">{{node.raw.size}}</div>
+                        <div class="file-info file-info_last-modification">{{node.raw.date}}</div>
+                    </div>
+                </label>
+            </treeselect>
+            <BackupList v-bind:backupInfo="backupInfo"/>
         </div>
-    </div>
     </div>
 </template>
 
 <script>
     import Treeselect from '@riophae/vue-treeselect'
     import '@riophae/vue-treeselect/dist/vue-treeselect.css'
-    import { LOAD_CHILDREN_OPTIONS } from '@riophae/vue-treeselect'
+    import {LOAD_CHILDREN_OPTIONS} from '@riophae/vue-treeselect'
     import data from './data'
+    import BackupList from './BackupList';
 
     const simulateAsyncOperation = fn => {
         setTimeout(fn, 2000)
@@ -50,14 +41,14 @@
 
     export default {
         name: 'files',
-        components: {Treeselect},
+        components: {BackupList, Treeselect},
         props: ['device'],
 
         data() {
             return {
                 value: null,
                 backupArr: [],
-                backupInfo:  JSON.parse(localStorage.getItem('backupInfo')) === null ? [] : JSON.parse(localStorage.getItem('backupInfo')),
+                backupInfo: JSON.parse(localStorage.getItem('backupInfo')) === null ? [] : JSON.parse(localStorage.getItem('backupInfo')),
 
                 options: data[this.$route.query.id].files,
                 methods: {},
@@ -75,7 +66,7 @@
                     })
                 }
 
-                this.options.forEach(i=>{
+                this.options.forEach(i => {
                     detailedDate.push(i);
                     i.children != null ? deepItems(i.children) : null
                 });
@@ -97,7 +88,6 @@
 
                             date = `${year}-${month}-${day} | ${hours}:${minutes}:${seconds}`;
 
-                            i.date = date;
                             this.backupArr.push(i);
 
                         }
@@ -142,88 +132,52 @@
                     }
                 }
             }
-            },
-            mounted() {
-            }
+        },
+        mounted() {
         }
+    }
 </script>
 
 <style scoped>
-    .component{
+    .component {
         max-width: 70vw;
     }
-    h2{
+
+    h2 {
         color: #fff;
         margin-bottom: 20px;
 
     }
-    h3{        margin-bottom: 20px;
+
+    h3 {
+        margin-bottom: 20px;
         color: #fff;
 
     }
 
-    .wrap{
+    .wrap {
         display: flex;
         justify-content: space-between;
 
     }
-    .tree{
+
+    .tree {
         width: 80%;
     }
-    .backup{
-        padding: 10px;
-        margin-left: 20px;
-        width: 20%;
-        background: #fff;
-        border-radius: 10px;
-    }
 
-
-    .backup-item{
-        margin-bottom: 20px;
-        padding: 10px;
-        border: 1px solid dodgerblue;
-        border-radius: 20px;
-    }
-
-
-    .backup-item__header{
-        color: #000;
-        margin-bottom: 10px;
-    }
-    .backup__header{
-        color: #000
-    }
-    .file-wrap{
+    .file-wrap {
         padding: 10px 15px;
         display: flex;
         justify-content: space-between;
     }
 
-    /*.file-info_name{*/
-    /*  width: 40%;*/
-    /*}*/
-    /*.file-info_size{*/
-    /*    width: 25%;*/
-    /*}*/
-    /*.file-info_last-modification{*/
-    /*    width: 35%;*/
-    /*}*/
-    /*.file-info_size,*/
-    /*.file-info_last-modification{*/
-    /*    text-align: right;*/
-
-    /*}*/
-
-
-    .btn{
+    .btn {
         padding: 10px;
-        position: absolute;
+        position: fixed;
         bottom: 40px;
         left: 50%;
-        transform: translate(-50%,0);
-        z-index: 999;
-
+        transform: translate(-50%, 0);
+        z-index: 9999;
     }
 
 </style>
