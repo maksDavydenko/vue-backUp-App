@@ -4,7 +4,6 @@
 
         <div class="wrap">
             <treeselect class="tree" v-model="value"
-
                         :options="options"
                         :always-open="true"
                         :append-to-body="true"

@@ -1,62 +1,5 @@
-// const data = [{
-//     id: 'backup',
-//     label: 'backup',
-//
-//     children: [{
-//         id: 'ect',
-//         label: 'fs'
-//
-//     }, {
-//         id: 'ab',
-//         label: 'tt',
-//         size: 4,
-//         date: '2019',
-//         children: [{
-//             id: '.pwd.lock',
-//             label: '.updates',
-//             size: '168 B',
-//             date: '2020-05-13 12:23:50'
-//         },
-//             {
-//                 id: '.2',
-//                 label: '.updates',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             },
-//             {
-//                 id: '.4',
-//                 label: '.updates',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             },{
-//                 id: '.5',
-//                 label: '.updates',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             },{
-//                 id: '.5',
-//                 label: '.updates',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             },{
-//                 id: '.5',
-//                 label: '.updates',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             },
-//         ]
-//     }],
-// }, {
-//     id: 'b',
-//     label: 'b',
-// }, {
-//     id: 'c',
-//     label: 'c',
-// }];
-//
-// export default data;
-
-const data = [{id: 'iPhone', files: [
+const data = [{
+    id: 'Apple iPhone 11 Pro', files: [
         {
             id: 'media',
             label: 'media',
@@ -88,10 +31,10 @@ const data = [{id: 'iPhone', files: [
                             id: 'Jobs.png',
                             label: 'Jobs.wov',
                         }, {
-                            id: 'mount.png',
+                            id: 'presentation.wov',
                             label: 'presentation.wov',
                         }, {
-                            id: 'tree.png',
+                            id: 'cat.wov',
                             label: 'cat.wov',
                         },
                     ]
@@ -154,304 +97,189 @@ const data = [{id: 'iPhone', files: [
                 label: 'TicToc',
             }]
         },
-    ] }, {id: 'samsung', files: [
-        {
-            id: 'Samsung',
-            label: 'Samsung',
-            children: [
-                {
-                    id: 'photo',
-                    label: 'photo',
-                    children: [
-                        {
-                            id: 'night.png',
-                            label: 'night.png',
-                        }, {
-                            id: 'sun.png',
-                            label: 'sun.png',
-                        }, {
-                            id: 'mount.png',
-                            label: 'mount.png',
-                        }, {
-                            id: 'tree.png',
-                            label: 'tree.png',
-                        },
-                    ]
+    ]
+},
+    {
+        id: 'Samsung Galaxy S20', files: [
+            {
+                id: 'Samsung',
+                label: 'Samsung',
+                children: [
+                    {
+                        id: 'DCIM',
+                        label: 'DCIM',
+                        children: [
+                            {
+                                id: 'Camera',
+                                label: 'Camera',
+                                children: [{
+                                    id: 'selfie.jpg',
+                                    label: 'selfie.jpg'
+                                }, {
+                                    id: 'room.jpg',
+                                    label: 'room.jpg'
+                                }
+                                ]
+                            },
+                            {
+                                id: 'Screenshots',
+                                label: 'Screenshots',
+                                children: [
+                                    {
+                                        id: 'Screenshot 2020-05-30 | 14:46:30.png',
+                                        label: 'Screenshot 2020-05-30 | 14:46:30.png'
+
+                                    }
+                                ]
+                            }
+
+                        ]
+                    },
+                    {
+                        id: 'video',
+                        label: 'video',
+                        children: [
+                            {
+                                id: 'mask',
+                                label: 'X Æ A-Xii                              son of Elon Musk',
+                            }, {
+                                id: 'android.mp4',
+                                label: 'android.mp4',
+                            },
+                        ]
+                    }
+
+                ]
+            },
+
+            {
+                id: 'music',
+                label: 'music',
+                size: null,
+                date: '2020-05-13 12:23:50',
+                children: [{
+                    id: 'nokia-tune.mp3',
+                    label: 'nokia-tune.mp3',
+                    size: '168 B',
+                    date: '2020-05-13 12:23:50'
                 },
+                    {
+                        id: 'Третье сентября Шуфутинский',
+                        label: 'Шуфутинский третье сентября.mp3',
+                    },
+
+                ]
+            },
+            {
+                id: 'app',
+                label: 'app',
+                children: [{
+                    id: 'vpn',
+                    label: 'vpn',
+                }, {
+                    id: 'vk',
+                    label: 'vk',
+                },
+                    {
+                        id: 'youtube',
+                        label: 'youtube',
+                    }]
+            },
+        ]
+    }, {
+        id: 'Laptop DELL G5', files: [{
+            id: 'dist',
+            label: 'dist',
+            children: [{
+                id: 'img',
+                label: 'img',
+                children: [
+                    {
+                        id: 'background',
+                        label: 'background.png'
+                    },
+                    {
+                        id: 'logo',
+                        label: 'logo.svg'
+                    }
+                ]
+            },
                 {
-                    id: 'video',
-                    label: 'video',
+                    id: 'js',
+                    label: 'js',
                     children: [
                         {
-                            id: 'Jobs.png',
-                            label: 'Jobs.wov',
-                        }, {
-                            id: 'mount.png',
-                            label: 'presentation.wov',
-                        }, {
-                            id: 'tree.png',
-                            label: 'cat.wov',
-                        },
+                            id: 'index.js1',
+                            label: 'index.js'
+                        }
+                    ]
+
+                }, {
+                    id: 'css',
+                    label: 'css',
+                    children: [
+                        {
+                            id: 'style.css',
+                            label: 'style.css'
+                        }
                     ]
                 }
 
             ]
         },
-
-        {
-            id: 'music',
-            label: 'music',
-            size: null,
-            date: '2020-05-13 12:23:50',
-            children: [{
-                id: 'AOGT.mp3',
-                label: 'AOGT.mp3',
-                size: '168 B',
-                date: '2020-05-13 12:23:50'
+            {
+                id: 'launchers',
+                label: 'launchers',
+                children: [{
+                    id: '1313',
+                    label: 'my-awesome-nerdpack-launcher',
+                    children: [{
+                        id: 'icon.png',
+                        label: 'icon.png'
+                    },
+                        {
+                            id: 'nr2.json',
+                            label: 'nr2.json'
+                        }]
+                }]
             },
-                {
-                    id: '.2',
-                    label: 'SBWT.mp3',
-                    size: '168 B',
-                    date: '2020-05-13 12:23:50'
-                },
-                {
-                    id: '.4',
-                    label: 'EEXS.mp3',
-                    size: '168 B',
-                    date: '2020-05-13 12:23:50'
-                }, {
-                    id: '.5',
-                    label: 'VWRW.mp3',
-                    size: '168 B',
-                    date: '2020-05-13 12:23:50'
-                }, {
-                    id: '.5',
-                    label: 'WVGT.mp3s',
-                    size: '168 B',
-                    date: '2020-05-13 12:23:50'
-                }, {
-                    id: '.5',
-                    label: 'TEWT.mp3',
-                    size: '168 B',
-                    date: '2020-05-13 12:23:50'
-                },
-            ]
-        },
-        {
-            id: 'app',
-            label: 'app',
-            children: [{
-                id: 'instagram',
-                label: 'instagram',
+
+            {
+                id: 'nerdlets',
+                label: 'nerdlets',
+                children: [{
+                    id: 'my-awesome-nerdpack-nerdlet',
+                    label: 'my-awesome-nerdpack-launcher',
+                    children: [{
+                        id: 'index.js',
+                        label: 'index.js',
+                    },
+                        {
+                            id: 'nr1.json',
+                            label: 'nr1.json',
+                        },
+                        {
+                            id: 'styles.scss',
+                            label: 'styles.scss',
+                        }]
+                }]
             }, {
-                id: 'youtube',
-                label: 'youtube',
-            }, {
-                id: 'TicToc',
-                label: 'TicToc',
+                id: 'node_modules',
+                label: 'node_modules',
+                children: [
+                    {
+                        id: 'package.json',
+                        label: 'package.json'
+                    },
+                    {
+                        id: 'README.md',
+                        label: 'README.md'
+                    }
+                ]
             }]
-        },
-    ]}];
-// const iPhone = [
-//     {
-//         id: 'media',
-//         label: 'media',
-//         children: [
-//             {
-//                 id: 'photo',
-//                 label: 'photo',
-//                 children: [
-//                     {
-//                         id: 'night.png',
-//                         label: 'night.png',
-//                     }, {
-//                         id: 'sun.png',
-//                         label: 'sun.png',
-//                     }, {
-//                         id: 'mount.png',
-//                         label: 'mount.png',
-//                     }, {
-//                         id: 'tree.png',
-//                         label: 'tree.png',
-//                     },
-//                 ]
-//             },
-//             {
-//                 id: 'video',
-//                 label: 'video',
-//                 children: [
-//                     {
-//                         id: 'Jobs.png',
-//                         label: 'Jobs.wov',
-//                     }, {
-//                         id: 'mount.png',
-//                         label: 'presentation.wov',
-//                     }, {
-//                         id: 'tree.png',
-//                         label: 'cat.wov',
-//                     },
-//                 ]
-//             }
-//
-//         ]
-//     },
-//
-//     {
-//         id: 'music',
-//         label: 'music',
-//         size: null,
-//         date: '2020-05-13 12:23:50',
-//         children: [{
-//             id: 'AOGT.mp3',
-//             label: 'AOGT.mp3',
-//             size: '168 B',
-//             date: '2020-05-13 12:23:50'
-//         },
-//             {
-//                 id: '.2',
-//                 label: 'SBWT.mp3',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             },
-//             {
-//                 id: '.4',
-//                 label: 'EEXS.mp3',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             }, {
-//                 id: '.5',
-//                 label: 'VWRW.mp3',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             }, {
-//                 id: '.5',
-//                 label: 'WVGT.mp3s',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             }, {
-//                 id: '.5',
-//                 label: 'TEWT.mp3',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             },
-//         ]
-//     },
-//     {
-//         id: 'app',
-//         label: 'app',
-//         children: [{
-//             id: 'instagram',
-//             label: 'instagram',
-//         }, {
-//             id: 'youtube',
-//             label: 'youtube',
-//         }, {
-//             id: 'TicToc',
-//             label: 'TicToc',
-//         }]
-//     },
-// ];
-//
-// const samsung = [
-//     {
-//         id: 'Samsung',
-//         label: 'media',
-//         children: [
-//             {
-//                 id: 'photo',
-//                 label: 'photo',
-//                 children: [
-//                     {
-//                         id: 'night.png',
-//                         label: 'night.png',
-//                     }, {
-//                         id: 'sun.png',
-//                         label: 'sun.png',
-//                     }, {
-//                         id: 'mount.png',
-//                         label: 'mount.png',
-//                     }, {
-//                         id: 'tree.png',
-//                         label: 'tree.png',
-//                     },
-//                 ]
-//             },
-//             {
-//                 id: 'video',
-//                 label: 'video',
-//                 children: [
-//                     {
-//                         id: 'Jobs.png',
-//                         label: 'Jobs.wov',
-//                     }, {
-//                         id: 'mount.png',
-//                         label: 'presentation.wov',
-//                     }, {
-//                         id: 'tree.png',
-//                         label: 'cat.wov',
-//                     },
-//                 ]
-//             }
-//
-//         ]
-//     },
-//
-//     {
-//         id: 'music',
-//         label: 'music',
-//         size: null,
-//         date: '2020-05-13 12:23:50',
-//         children: [{
-//             id: 'AOGT.mp3',
-//             label: 'AOGT.mp3',
-//             size: '168 B',
-//             date: '2020-05-13 12:23:50'
-//         },
-//             {
-//                 id: '.2',
-//                 label: 'SBWT.mp3',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             },
-//             {
-//                 id: '.4',
-//                 label: 'EEXS.mp3',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             }, {
-//                 id: '.5',
-//                 label: 'VWRW.mp3',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             }, {
-//                 id: '.5',
-//                 label: 'WVGT.mp3s',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             }, {
-//                 id: '.5',
-//                 label: 'TEWT.mp3',
-//                 size: '168 B',
-//                 date: '2020-05-13 12:23:50'
-//             },
-//         ]
-//     },
-//     {
-//         id: 'app',
-//         label: 'app',
-//         children: [{
-//             id: 'instagram',
-//             label: 'instagram',
-//         }, {
-//             id: 'youtube',
-//             label: 'youtube',
-//         }, {
-//             id: 'TicToc',
-//             label: 'TicToc',
-//         }]
-//     },
-// ];
+    }]
+
+
 export default data;
 
 

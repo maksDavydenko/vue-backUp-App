@@ -44,6 +44,10 @@
 
 <style scoped>
     form {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 50%;
         max-width: 800px;
     }
@@ -51,6 +55,7 @@
     h2 {
         margin-bottom: 30px;
         color: #ffffff;
+        font-size: 30px;
     }
 
     select {

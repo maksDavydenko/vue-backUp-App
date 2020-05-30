@@ -47,11 +47,11 @@
     const simulateAsyncOperation = fn => {
         setTimeout(fn, 2000)
     }
+
     export default {
         name: 'files',
         components: {Treeselect},
         props: ['device'],
-
 
         data() {
             return {
@@ -70,13 +70,13 @@
 
                 function deepItems(arr) {
                     arr.forEach(i => {
-                        detailedDate.push({id: i.id, size: i.size, date: i.data, label: i.label})
+                        detailedDate.push(i);
                         i.children != null ? deepItems(i.children) : null
                     })
                 }
 
                 this.options.forEach(i=>{
-                    detailedDate.push({id: i.id, size: i.size, date: i.data, label: i.label})
+                    detailedDate.push(i);
                     i.children != null ? deepItems(i.children) : null
                 });
 
@@ -153,12 +153,14 @@
         max-width: 70vw;
     }
     h2{
+        font-size: 30px;
         color: #fff;
         margin-bottom: 20px;
 
     }
     h3{        margin-bottom: 20px;
         color: #fff;
+        font-size: 25px;
     }
 
     .wrap{
@@ -197,6 +199,10 @@
         padding: 10px 15px;
         display: flex;
         justify-content: space-between;
+    }
+    .file-info{
+        font-size: 20px;
+
     }
 
     .file-info_size,
