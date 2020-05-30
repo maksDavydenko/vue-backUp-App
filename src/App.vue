@@ -24,7 +24,7 @@ export default {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
-min-height: 100vh;
+        min-height: 100vh;
         margin: auto;
         background-attachment: fixed;
     }
@@ -49,5 +49,19 @@ min-height: 100vh;
         text-transform: uppercase;
         color: dodgerblue;
         font-weight: bold;
+    }
+    .file-info_name{
+        width: 40%;
+    }
+    .file-info_size{
+        width: 25%;
+    }
+    .file-info_last-modification{
+        width: 35%;
+    }
+    .file-info_size,
+    .file-info_last-modification{
+        text-align: right;
+
     }
 </style>

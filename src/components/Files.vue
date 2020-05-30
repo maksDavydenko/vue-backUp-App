@@ -153,14 +153,13 @@
         max-width: 70vw;
     }
     h2{
-        font-size: 30px;
         color: #fff;
         margin-bottom: 20px;
 
     }
     h3{        margin-bottom: 20px;
         color: #fff;
-        font-size: 25px;
+
     }
 
     .wrap{
@@ -200,15 +199,22 @@
         display: flex;
         justify-content: space-between;
     }
-    .file-info{
-        font-size: 20px;
 
-    }
+    /*.file-info_name{*/
+    /*  width: 40%;*/
+    /*}*/
+    /*.file-info_size{*/
+    /*    width: 25%;*/
+    /*}*/
+    /*.file-info_last-modification{*/
+    /*    width: 35%;*/
+    /*}*/
+    /*.file-info_size,*/
+    /*.file-info_last-modification{*/
+    /*    text-align: right;*/
 
-    .file-info_size,
-    .file-info_last-modification{
-        text-align: center;
-    }
+    /*}*/
+
 
     .btn{
         padding: 10px;

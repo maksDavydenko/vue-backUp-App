@@ -55,7 +55,7 @@
     h2 {
         margin-bottom: 30px;
         color: #ffffff;
-        font-size: 30px;
+
     }
 
     select {
