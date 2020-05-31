@@ -1,6 +1,6 @@
 <template>
     <form>
-        <h2>Choise of device for backup files</h2>
+        <h1>Choise of device for backup files</h1>
         <select v-model="selected" @change="chengeDevice">
             <option value="" disabled selected>choose
                 device
@@ -9,8 +9,8 @@
             <option value="Samsung Galaxy S20">Samsung Galaxy S20</option>
             <option value="Laptop DELL G5">Laptop DELL G5</option>
         </select>
-        <router-link :to="{ path: 'data:selected',  query: {device: selected, id: id }}"><input class="btn" type="submit"
-                                                                                               value="choise device">
+        <router-link :to="{ path: 'data:selected',  query: {device: selected, id: id }}">
+            <input class="btn" type="submit" value="choise device">
         </router-link>
     </form>
 </template>
@@ -48,14 +48,15 @@
         top: 40%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 50%;
-        max-width: 800px;
+        width: 70%;
+        max-width: 1200px;
+        min-width: 300px;
     }
 
-    h2 {
+    h1 {
+        font-size: 35px;
         margin-bottom: 30px;
         color: #ffffff;
-
     }
 
     select {
@@ -69,9 +70,12 @@
         border: none;
         font-size: 18px;
         box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-
         outline: none;
     }
 
-
+    @media screen and (max-width: 500px) {
+        h1 {
+            font-size: 28px;
+        }
+    }
 </style>

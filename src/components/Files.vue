@@ -23,7 +23,7 @@
                     </div>
                 </label>
             </treeselect>
-            <BackupList v-bind:backupInfo="backupInfo"/>
+            <BackupList class="backUp-list" v-bind:backupInfo="backupInfo"/>
         </div>
     </div>
 </template>
@@ -48,7 +48,8 @@
             return {
                 value: null,
                 backupArr: [],
-                backupInfo: JSON.parse(localStorage.getItem('backupInfo')) === null ? [] : JSON.parse(localStorage.getItem('backupInfo')),
+                backupInfo: JSON.parse(localStorage.getItem('backupInfo')) === null ? [] :
+                    JSON.parse(localStorage.getItem('backupInfo')),
 
                 options: data[this.$route.query.id].files,
                 methods: {},
@@ -86,7 +87,7 @@
                             const minutes = today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes();
                             const seconds = today.getSeconds() < 10 ? '0' + today.getSeconds() : today.getSeconds();
 
-                            date = `${year}-${month}-${day} | ${hours}:${minutes}:${seconds}`;
+                            date = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 
                             this.backupArr.push(i);
 
@@ -133,14 +134,13 @@
                 }
             }
         },
-        mounted() {
-        }
     }
 </script>
 
 <style scoped>
     .component {
-        max-width: 70vw;
+        max-width: 1600px;
+        width: 70vw;
     }
 
     h2 {
@@ -178,6 +178,19 @@
         left: 50%;
         transform: translate(-50%, 0);
         z-index: 9999;
+    }
+
+    @media screen and (max-width: 900px) {
+        .wrap{
+            flex-direction: column-reverse;
+        }
+        .tree {
+            width: 100%;
+
+        }
+        .backUp-list{
+            margin-bottom: 20px;
+        }
     }
 
 </style>

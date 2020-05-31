@@ -185,7 +185,7 @@ const data = [{
                 children: [{
                     id: 'nokia-tune.mp3',
                     label: 'nokia-tune.mp3',
-                    size: '168 B',
+                    size: '18 Mb',
                     date: '2020-05-13 12:23:50'
                 },
                     {

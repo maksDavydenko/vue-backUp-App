@@ -11,7 +11,6 @@ const router = new Router({
             path: '/',
             name: 'devices',
             component: Devices,
-            // props: true
         },
         {
             path: '/data:selected',

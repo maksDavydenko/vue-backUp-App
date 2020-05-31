@@ -1,7 +1,7 @@
 <template>
     <div class="component">
-        <h2>{{$route.query.device}} backup {{$route.query.date}}</h2>
-
+        <h2 class="header"><div class="header__item header__device">{{$route.query.device}} backup</div>
+            <div class="header__item header__date">{{$route.query.date}}</div></h2>
         <div class="wrap">
             <treeselect class="tree" v-model="value"
                         :options="options"
@@ -9,7 +9,6 @@
                         :append-to-body="true"
                         :load-options="true"
                         placeholder="Search files"
-
             >
                 <label slot="option-label" slot-scope="{ node }" :class="labelClassName">
                     <div class="file-wrap">
@@ -19,7 +18,6 @@
                     </div>
                 </label>
             </treeselect>
-
         </div>
     </div>
 </template>
@@ -28,7 +26,6 @@
     import Treeselect from '@riophae/vue-treeselect'
     import '@riophae/vue-treeselect/dist/vue-treeselect.css'
     import {LOAD_CHILDREN_OPTIONS} from '@riophae/vue-treeselect'
-
 
     const simulateAsyncOperation = fn => {
         setTimeout(fn, 2000)
@@ -78,18 +75,33 @@
                 }
             }
         },
-        mounted() {
-        }
     }
 </script>
 
 <style scoped>
     .component{
-        max-width: 900px;
+        width: 80%;
+        max-width: 1600px;
     }
-    h2{
+
+    .header__item {
+       flex-grow: .5;
+        margin-bottom: 10px;
+    }
+    .header__device{
+        margin-left: auto;
+        text-align: left;
+    }
+    .header__date{
+        text-align: right;
+    }
+    .header{
         color: #fff;
         margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
     }
     .file-wrap{
         padding: 10px 15px;
@@ -102,4 +114,10 @@
         text-align: center;
     }
 
+    @media screen and (max-width: 700px) {
+        .header__item{
+            font-size: 25px;
+            text-align: center;
+        }
+    }
 </style>

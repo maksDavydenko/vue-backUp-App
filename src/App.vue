@@ -20,27 +20,25 @@ export default {
         box-sizing: border-box;
     }
     #app{
-        background: url(../src/assets/img/backup-dados.png);
-        background-repeat: no-repeat;
+        background: url(../src/assets/img/backup-dados.png) no-repeat center center fixed;
         background-size: cover;
-        background-position: center center;
         min-height: 100vh;
-        margin: auto;
-        background-attachment: fixed;
+        /*background-attachment: fixed;*/
     }
     .content {
         padding-top: 70px;
-  max-width:80vw;
         margin: 0px auto;
+        max-width: 1800px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-.vue-treeselect__menu{
-  max-height: 100vw !important;
-}
+
+    }
+    .vue-treeselect__menu{
+      max-height: 100vw !important;
+    }
     .btn{
         padding: 10px 30px;
         border: dodgerblue;
@@ -63,5 +61,10 @@ export default {
     .file-info_last-modification{
         text-align: right;
 
+    }
+    @media screen and (max-width: 700px){
+        .file-info{
+            font-size: 12px;
+        }
     }
 </style>
