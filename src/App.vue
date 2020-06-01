@@ -23,7 +23,6 @@ export default {
         background: url(../src/assets/img/backup-dados.png) no-repeat center center fixed;
         background-size: cover;
         min-height: 100vh;
-        /*background-attachment: fixed;*/
     }
     .content {
         padding-top: 70px;
@@ -67,4 +66,14 @@ export default {
             font-size: 12px;
         }
     }
+    @media screen and (max-width: 500px){
+        .vue-treeselect__option,
+        .vue-treeselect__option-arrow-placeholder
+        {
+            padding: 0 !important;
+        }
+    }
+
+
+
 </style>

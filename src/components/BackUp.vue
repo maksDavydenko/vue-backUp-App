@@ -12,7 +12,8 @@
             >
                 <label slot="option-label" slot-scope="{ node }" :class="labelClassName">
                     <div class="file-wrap">
-                        <div class="file-info file-info_name">{{node.label}}</div>
+                        <div v-if="screenWidth" class="file-info file-info_name">{{node.label}}</div>
+                        <div v-else class="file-info file-info_name">{{(node.label).length > 10 ? node.label.split('').splice(0, 10).join('') + '...' :node.label }}</div>
                         <div class="file-info file-info_size">{{node.raw.size}}</div>
                         <div class="file-info file-info_last-modification">{{node.raw.date}}</div>
                     </div>
@@ -39,6 +40,7 @@
                 value: null,
                 options: this.$route.query.data,
                 methods: {},
+                screenWidth: window.screen.width >= 500,
             }
         },
         methods: {
@@ -107,6 +109,7 @@
         padding: 10px 15px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
     .file-info_size,
@@ -118,6 +121,13 @@
         .header__item{
             font-size: 25px;
             text-align: center;
+        }
+    }
+
+    @media screen and (max-width: 500px){
+        .component {
+            width: 100%;
+            padding: 0px 20px;
         }
     }
 </style>

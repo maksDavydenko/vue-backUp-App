@@ -3,9 +3,7 @@
         <h2>{{$route.query.device}} file tree</h2>
         <h3>Choise of folders and files to create backup</h3>
         <button class="btn" @click="createBackup">create backup</button>
-
         <div class="wrap">
-
             <treeselect class="tree" v-model="value"
                         :multiple="true"
                         :options="options"
@@ -13,11 +11,11 @@
                         :append-to-body="true"
                         :load-options="true"
                         placeholder="Search files"
-
             >
                 <label slot="option-label" slot-scope="{ node }" :class="labelClassName">
                     <div class="file-wrap">
-                        <div class="file-info file-info_name">{{node.label}}</div>
+                        <div v-if="screenWidth" class="file-info file-info_name">{{node.label}}</div>
+                        <div v-else class="file-info file-info_name">{{(node.label).length > 10 ? node.label.split('').splice(0, 10).join('') + '...' :node.label }}</div>
                         <div class="file-info file-info_size">{{node.raw.size}}</div>
                         <div class="file-info file-info_last-modification">{{node.raw.date}}</div>
                     </div>
@@ -39,6 +37,7 @@
         setTimeout(fn, 2000)
     }
 
+
     export default {
         name: 'files',
         components: {BackupList, Treeselect},
@@ -53,6 +52,7 @@
 
                 options: data[this.$route.query.id].files,
                 methods: {},
+                screenWidth: window.screen.width >= 500,
             }
         },
         methods: {
@@ -134,13 +134,16 @@
                 }
             }
         },
+        mounted() {
+            console.log(window.screen.width <= 500);
+        }
     }
 </script>
 
 <style scoped>
     .component {
         max-width: 1600px;
-        width: 70vw;
+        width: 70%;
     }
 
     h2 {
@@ -169,6 +172,7 @@
         padding: 10px 15px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
     .btn {
@@ -181,6 +185,7 @@
     }
 
     @media screen and (max-width: 900px) {
+
         .wrap{
             flex-direction: column-reverse;
         }
@@ -193,4 +198,10 @@
         }
     }
 
+    @media screen and (max-width: 500px){
+        .component {
+            width: 100%;
+            padding: 0px 20px;
+        }
+    }
 </style>
